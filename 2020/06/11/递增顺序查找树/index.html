@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="I will put my post on github. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Ge">
+  <meta name="description" content="这里的重点是理解指针12341.中序遍历把二叉树转为一个递增数组2.声明一个变量ans，指向0节点。变量cur也指向0节点3.指针变量cur的右节点指向1节点，然后当前指针cur右移一位4.循环下来，变量ans位置没变，他的右节点就是目标右子节点树状结构  123456789101112131415161718192021222324252627282930&#x2F;** * Definition for">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello github">
-<meta property="og:url" content="http://yoursite.com/2020/01/21/first-blog/index.html">
+<meta property="og:title" content="LeetCode 897.递增顺序查找树">
+<meta property="og:url" content="http://yoursite.com/2020/06/11/%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="I will put my post on github. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Ge">
-<meta property="article:published_time" content="2020-01-21T13:22:55.533Z">
-<meta property="article:modified_time" content="2020-01-21T13:25:01.102Z">
+<meta property="og:description" content="这里的重点是理解指针12341.中序遍历把二叉树转为一个递增数组2.声明一个变量ans，指向0节点。变量cur也指向0节点3.指针变量cur的右节点指向1节点，然后当前指针cur右移一位4.循环下来，变量ans位置没变，他的右节点就是目标右子节点树状结构  123456789101112131415161718192021222324252627282930&#x2F;** * Definition for">
+<meta property="article:published_time" content="2020-06-11T15:35:26.031Z">
+<meta property="article:modified_time" content="2020-06-11T15:49:45.915Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/01/21/first-blog/">
+<link rel="canonical" href="http://yoursite.com/2020/06/11/%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91/">
 
 
 <script id="page-configurations">
@@ -69,7 +69,7 @@
   };
 </script>
 
-  <title>Hello github | Hexo</title>
+  <title>LeetCode 897.递增顺序查找树 | Hexo</title>
   
 
 
@@ -178,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/first-blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/11/%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello github
+          LeetCode 897.递增顺序查找树
         </h1>
 
         <div class="post-meta">
@@ -202,7 +202,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-01-21 21:22:55 / 修改时间：21:25:01" itemprop="dateCreated datePublished" datetime="2020-01-21T21:22:55+08:00">2020-01-21</time>
+              <time title="创建时间：2020-06-11 23:35:26 / 修改时间：23:49:45" itemprop="dateCreated datePublished" datetime="2020-06-11T23:35:26+08:00">2020-06-11</time>
             </span>
 
           
@@ -216,19 +216,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>I will put my post on github.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h3 id="这里的重点是理解指针"><a href="#这里的重点是理解指针" class="headerlink" title="这里的重点是理解指针"></a>这里的重点是理解指针</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.中序遍历把二叉树转为一个递增数组</span><br><span class="line">2.声明一个变量ans，指向0节点。变量cur也指向0节点</span><br><span class="line">3.指针变量cur的右节点指向1节点，然后当前指针cur右移一位</span><br><span class="line">4.循环下来，变量ans位置没变，他的右节点就是目标右子节点树状结构</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public TreeNode increasingBST(TreeNode root) &#123;</span><br><span class="line">        List &lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">        inorder(root, list);</span><br><span class="line">        TreeNode ans = new TreeNode(0), cur = ans;</span><br><span class="line">        <span class="keyword">for</span> (int v : list) &#123;</span><br><span class="line">            cur.right = new TreeNode(v);</span><br><span class="line">            cur = cur.right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans.right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void inorder(TreeNode root, List &lt;Integer&gt; list) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == null) &#123;</span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        inorder(root.left, list);</span><br><span class="line">        list.add(root.val);</span><br><span class="line">        inorder(root.right, list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -244,13 +234,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/21/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2020/05/18/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="prev" title="Java语言实现二分查找">
+      <i class="fa fa-chevron-left"></i> Java语言实现二分查找
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/05/11/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" rel="next" title="Java语言实现插入排序">
-      Java语言实现插入排序 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -310,7 +297,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#这里的重点是理解指针"><span class="nav-number">1.</span> <span class="nav-text">这里的重点是理解指针</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -324,7 +311,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
