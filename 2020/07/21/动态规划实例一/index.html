@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="这里的重点是理解指针12341.中序遍历把二叉树转为一个递增数组2.声明一个变量ans，指向0节点。变量cur也指向0节点3.指针变量cur的右节点指向1节点，然后当前指针cur右移一位4.循环下来，变量ans位置没变，他的右节点就是目标右子节点树状结构  123456789101112131415161718192021222324252627282930&#x2F;** * Definition for">
+  <meta name="description" content="1234567对一个整数数组，求不相邻的数相加的最大值分别用递归和动态规划求解：递归的代码更简洁，但是时间复杂度为O(n2)， 动态规划是把前面计算的结果存储在内存中（数组），避免了重复计算，时间复杂度是O(n)，执行效率大大提高。粘贴代码如下：  123456789101112131415161718192021222324252627282930313233343536public class">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 897.递增顺序查找树">
-<meta property="og:url" content="http://yoursite.com/2020/06/11/%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91/index.html">
+<meta property="og:title" content="动态规划实例">
+<meta property="og:url" content="http://yoursite.com/2020/07/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AE%9E%E4%BE%8B%E4%B8%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="这里的重点是理解指针12341.中序遍历把二叉树转为一个递增数组2.声明一个变量ans，指向0节点。变量cur也指向0节点3.指针变量cur的右节点指向1节点，然后当前指针cur右移一位4.循环下来，变量ans位置没变，他的右节点就是目标右子节点树状结构  123456789101112131415161718192021222324252627282930&#x2F;** * Definition for">
-<meta property="article:published_time" content="2020-06-11T15:35:26.031Z">
-<meta property="article:modified_time" content="2020-06-11T15:54:07.932Z">
+<meta property="og:description" content="1234567对一个整数数组，求不相邻的数相加的最大值分别用递归和动态规划求解：递归的代码更简洁，但是时间复杂度为O(n2)， 动态规划是把前面计算的结果存储在内存中（数组），避免了重复计算，时间复杂度是O(n)，执行效率大大提高。粘贴代码如下：  123456789101112131415161718192021222324252627282930313233343536public class">
+<meta property="article:published_time" content="2020-07-21T14:38:21.889Z">
+<meta property="article:modified_time" content="2020-07-21T14:58:39.781Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/06/11/%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91/">
+<link rel="canonical" href="http://yoursite.com/2020/07/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AE%9E%E4%BE%8B%E4%B8%80/">
 
 
 <script id="page-configurations">
@@ -69,7 +69,7 @@
   };
 </script>
 
-  <title>LeetCode 897.递增顺序查找树 | Hexo</title>
+  <title>动态规划实例 | Hexo</title>
   
 
 
@@ -178,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/11/%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AE%9E%E4%BE%8B%E4%B8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          LeetCode 897.递增顺序查找树
+          动态规划实例
         </h1>
 
         <div class="post-meta">
@@ -202,7 +202,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-06-11 23:35:26 / 修改时间：23:54:07" itemprop="dateCreated datePublished" datetime="2020-06-11T23:35:26+08:00">2020-06-11</time>
+              <time title="创建时间：2020-07-21 22:38:21 / 修改时间：22:58:39" itemprop="dateCreated datePublished" datetime="2020-07-21T22:38:21+08:00">2020-07-21</time>
             </span>
 
           
@@ -216,9 +216,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="这里的重点是理解指针"><a href="#这里的重点是理解指针" class="headerlink" title="这里的重点是理解指针"></a>这里的重点是理解指针</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.中序遍历把二叉树转为一个递增数组</span><br><span class="line">2.声明一个变量ans，指向0节点。变量cur也指向0节点</span><br><span class="line">3.指针变量cur的右节点指向1节点，然后当前指针cur右移一位</span><br><span class="line">4.循环下来，变量ans位置没变，他的右节点就是目标右子节点树状结构</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">对一个整数数组，求不相邻的数相加的最大值</span><br><span class="line">分别用递归和动态规划求解：</span><br><span class="line">递归的代码更简洁，但是时间复杂度为O(n2)， </span><br><span class="line">动态规划是把前面计算的结果存储在内存中（数组），避免了重复计算，</span><br><span class="line">时间复杂度是O(n)，执行效率大大提高。</span><br><span class="line"></span><br><span class="line">粘贴代码如下：</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public TreeNode increasingBST(TreeNode root) &#123;</span><br><span class="line">        List &lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">        inorder(root, list);</span><br><span class="line">        TreeNode ans = new TreeNode(0), cur = ans;</span><br><span class="line">        <span class="keyword">for</span> (int v : list) &#123;</span><br><span class="line">            cur.right = new TreeNode(v);</span><br><span class="line">            cur = cur.right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> ans.right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void inorder(TreeNode root, List &lt;Integer&gt; list) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root == null) &#123;</span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        inorder(root.left, list);</span><br><span class="line">        list.add(root.val);</span><br><span class="line">        inorder(root.right, list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class DynamicProgram &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] arr = &#123;1,2,4,1,7,8,3&#125;;</span><br><span class="line">        int dp = dp_opt(arr);</span><br><span class="line">        System.out.println(dp);</span><br><span class="line">        System.out.println(<span class="string">"============="</span>);</span><br><span class="line">        int rec = rec_opt(arr, arr.length-1);</span><br><span class="line">        System.out.println(rec);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 递归</span><br><span class="line">    public static int rec_opt(int[] arr, int i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == 0) &#123;</span><br><span class="line">            <span class="built_in">return</span> arr[0];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == 1) &#123;</span><br><span class="line">            <span class="built_in">return</span> Math.max(arr[0], arr[1]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            int a = rec_opt(arr, i-2) + arr[i];</span><br><span class="line">            int b = rec_opt(arr, i-1);</span><br><span class="line">            <span class="built_in">return</span> Math.max(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 动态规划</span><br><span class="line">    public static int dp_opt(int[] arr) &#123;</span><br><span class="line">        int[] opt = new int[arr.length];</span><br><span class="line">        opt[0] = arr[0];</span><br><span class="line">        opt[1] = Math.max(arr[0], arr[1]);</span><br><span class="line">        <span class="keyword">for</span> (int i=2; i&lt;arr.length; i++) &#123;</span><br><span class="line">            int a = opt[i-2] + arr[i];</span><br><span class="line">            int b = opt[i-1];</span><br><span class="line">            opt[i] = Math.max(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> opt[arr.length-1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -234,12 +234,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/18/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="prev" title="Java语言实现二分查找">
-      <i class="fa fa-chevron-left"></i> Java语言实现二分查找
+    <a href="/2020/07/06/%E5%85%AB%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98/" rel="prev" title="Java语言解决八皇后问题">
+      <i class="fa fa-chevron-left"></i> Java语言解决八皇后问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/06/16/%E5%A0%86%E6%8E%92%E5%BA%8F/" rel="next" title="Java语言实现堆排序">
-      Java语言实现堆排序 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/07/21/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B%E4%B8%80/" rel="next" title="贪心算法解决用最少的广播站覆盖所有地区">
+      贪心算法解决用最少的广播站覆盖所有地区 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -300,7 +300,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#这里的重点是理解指针"><span class="nav-number">1.</span> <span class="nav-text">这里的重点是理解指针</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
