@@ -174,6 +174,67 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/26/Prim%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E4%BF%AE%E8%B7%AF%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/26/Prim%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E4%BF%AE%E8%B7%AF%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Prim算法解决修路问题</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-26 22:59:01 / 修改时间：23:01:42" itemprop="dateCreated datePublished" datetime="2020-10-26T22:59:01+08:00">2020-10-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 普利姆算法</span><br><span class="line"> * 思路：尽可能选择少的路线，并且每条路线最小，保证总里程数最少</span><br><span class="line"> * 最小生成树：</span><br><span class="line"> * 修路的问题本质是最小生成树的问题，N个顶点，N-1条边，包含全部顶点</span><br><span class="line"> * 步骤：</span><br><span class="line"> * 1.循环访问过的节点，和没访问过的节点，找到一条最小权重的边</span><br><span class="line"> * 2.循环N-1次，找到N-1条边</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">public class PrimAlgorithm &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 图创建是否成功</span><br><span class="line">        char[] data = &#123;<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>&#125;;</span><br><span class="line">        int verxs = data.length;</span><br><span class="line">        int[][] weight = new int[][] &#123;</span><br><span class="line">                &#123;100000,5,7,100000,100000,100000,2&#125;,</span><br><span class="line">                &#123;5,100000,100000,9,100000,100000,3&#125;,</span><br><span class="line">                &#123;7,100000,100000,100000,8,100000,100000&#125;,</span><br><span class="line">                &#123;100000,9,100000,100000,100000,4,100000&#125;,</span><br><span class="line">                &#123;100000,100000,8,100000,100000,5,4&#125;,</span><br><span class="line">                &#123;100000,100000,100000,4,5,100000,6&#125;,</span><br><span class="line">                &#123;2,3,100000,100000,4,6,100000&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        // 创建图对象</span><br><span class="line">        MGraph graph = new MGraph(verxs);</span><br><span class="line">        // 创建最小生成树</span><br><span class="line">        MinTree minTree = new MinTree();</span><br><span class="line">        minTree.createGraph(graph, verxs, data, weight);</span><br><span class="line">        // 展示</span><br><span class="line">        minTree.showGraph(graph);</span><br><span class="line">        // prim 算法</span><br><span class="line">        minTree.prim(graph, 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 创建最小的生成树</span><br><span class="line">class MinTree &#123;</span><br><span class="line">    // 创建图的邻接矩阵</span><br><span class="line">    public void createGraph(MGraph graph, int verxs, char[] data, int[][] weight) &#123;</span><br><span class="line">        int i, j;</span><br><span class="line">        <span class="keyword">for</span> (i = 0;  i &lt; verxs; i++) &#123;</span><br><span class="line">            graph.data[i] = data[i];  // 顶点</span><br><span class="line">            <span class="keyword">for</span> (j = 0; j &lt; verxs; j++) &#123;</span><br><span class="line">                graph.weight[i][j] = weight[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 展示</span><br><span class="line">    public void showGraph(MGraph graph) &#123;</span><br><span class="line">        <span class="keyword">for</span> (int[] link : graph.weight) &#123;</span><br><span class="line">            System.out.println(Arrays.toString(link));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * prim算法，得到最小生成树</span><br><span class="line">     *</span><br><span class="line">     * @param graph 图</span><br><span class="line">     * @param v 当前顶点的下标</span><br><span class="line">     */</span><br><span class="line">    public void prim(MGraph graph, int v) &#123;</span><br><span class="line">        int visited[] = new int[graph.verxs];</span><br><span class="line">        visited[v] = 1;</span><br><span class="line">        // 初始化找到的边的两个顶点的下标</span><br><span class="line">        int h1 = -1;</span><br><span class="line">        int h2 = -1;</span><br><span class="line">        int minWeight = 100000;</span><br><span class="line">        // 循环verxs-1次，找到verxs条边</span><br><span class="line">        <span class="keyword">for</span> (int k = 1; k &lt; graph.verxs; k++) &#123;</span><br><span class="line">            // 找到一条最小边</span><br><span class="line">            <span class="keyword">for</span> (int i = 0; i &lt; graph.verxs; i++) &#123; // 已访问过的节点</span><br><span class="line">                <span class="keyword">for</span> (int j = 0; j &lt; graph.verxs; j++) &#123; // 未访问过的节点</span><br><span class="line">                    <span class="keyword">if</span> (visited[i] == 1 &amp;&amp; visited[j] == 0 &amp;&amp; graph.weight[i][j] &lt; minWeight) &#123;</span><br><span class="line">                        minWeight = graph.weight[i][j];</span><br><span class="line">                        h1 = i;</span><br><span class="line">                        h2 = j;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 找到一条最小边</span><br><span class="line">            System.out.println(<span class="string">"边&lt;"</span> + graph.data[h1] + <span class="string">","</span> + graph.data[h2] + <span class="string">"&gt;权值："</span> + graph.weight[h1][h2]);</span><br><span class="line">            visited[h2] = 1;</span><br><span class="line">            minWeight = 100000;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 构造图</span><br><span class="line">class MGraph &#123;</span><br><span class="line">    int verxs; //图的节点</span><br><span class="line">    char[] data; // 存放节点数据</span><br><span class="line">    int[][] weight; //存放边，邻接矩阵</span><br><span class="line"></span><br><span class="line">    public MGraph(int verxs) &#123;</span><br><span class="line">        this.verxs = verxs;</span><br><span class="line">        data = new char[verxs];</span><br><span class="line">        weight = new int[verxs][verxs];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/21/%E6%8F%92%E5%80%BC%E6%9F%A5%E6%89%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -707,65 +768,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/%E9%98%9F%E5%88%97%E4%B9%8B%E5%8D%95%E9%93%BE%E8%A1%A8%E5%BD%A2%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/24/%E9%98%9F%E5%88%97%E4%B9%8B%E5%8D%95%E9%93%BE%E8%A1%A8%E5%BD%A2%E5%BC%8F/" class="post-title-link" itemprop="url">队列之单链表形式</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-07-24 00:43:09 / 修改时间：00:45:38" itemprop="dateCreated datePublished" datetime="2020-07-24T00:43:09+08:00">2020-07-24</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">public class SingleLinkedListDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        HeroNode heroNode1 = new HeroNode(1, <span class="string">"松江"</span>, <span class="string">"及时雨"</span>);</span><br><span class="line">        HeroNode heroNode2 = new HeroNode(2, <span class="string">"卢俊义"</span>, <span class="string">"玉麒麟"</span>);</span><br><span class="line">        HeroNode heroNode3 = new HeroNode(3, <span class="string">"无用"</span>, <span class="string">"智多星"</span>);</span><br><span class="line">        HeroNode heroNode4 = new HeroNode(4, <span class="string">"林冲"</span>, <span class="string">"豹子头"</span>);</span><br><span class="line"></span><br><span class="line">        SingleLinkedList sllist = new SingleLinkedList();</span><br><span class="line">//        sllist.add(heroNode1);</span><br><span class="line">//        sllist.add(heroNode2);</span><br><span class="line">//        sllist.add(heroNode3);</span><br><span class="line">//        sllist.add(heroNode4);</span><br><span class="line"></span><br><span class="line">        sllist.addByOrder(heroNode1);</span><br><span class="line">        sllist.addByOrder(heroNode3);</span><br><span class="line">        sllist.addByOrder(heroNode2);</span><br><span class="line">        sllist.addByOrder(heroNode4);</span><br><span class="line">        sllist.addByOrder(heroNode3);</span><br><span class="line"></span><br><span class="line">        sllist.list();</span><br><span class="line"></span><br><span class="line">        sllist.update(new HeroNode(3, <span class="string">"无用吗"</span>, <span class="string">"智多星"</span>));</span><br><span class="line">        sllist.list();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class SingleLinkedList &#123;</span><br><span class="line">    private HeroNode head = new HeroNode(0, <span class="string">""</span>, <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">    public void add(HeroNode heroNode) &#123;</span><br><span class="line">        // 先找到最后一个节点</span><br><span class="line">        HeroNode temp = head;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp.next == null) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.next = heroNode;  // 这里需要商榷</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void addByOrder(HeroNode heroNode) &#123;</span><br><span class="line">        HeroNode temp = head;</span><br><span class="line">        boolean flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp.next == null) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (temp.next.no &gt; heroNode.no) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(temp.next.no == heroNode.no) &#123;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            System.out.printf(<span class="string">"英雄已存在， 编号： %d\n"</span>, heroNode.no);</span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            heroNode.next = temp.next;</span><br><span class="line">            temp.next = heroNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void update(HeroNode newHeroNode) &#123;</span><br><span class="line">        <span class="keyword">if</span> (head.next == null) &#123;</span><br><span class="line">            System.out.println(<span class="string">"队列为空"</span>);</span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        HeroNode temp = head.next;</span><br><span class="line">        boolean flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp == null) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (temp.no == newHeroNode.no) &#123;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">            temp.name = newHeroNode.name;</span><br><span class="line">            temp.nickname = newHeroNode.nickname;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"节点未找到"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 展示链表</span><br><span class="line">    public void <span class="function"><span class="title">list</span></span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> (head.next == null) &#123;</span><br><span class="line">            System.out.println(<span class="string">"链表为空"</span>);</span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        HeroNode temp = head.next;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp == null) &#123;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(temp);</span><br><span class="line">            temp = temp.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class HeroNode &#123;</span><br><span class="line">    public int no;</span><br><span class="line">    public String name;</span><br><span class="line">    public String nickname;</span><br><span class="line">    public HeroNode next; // 指向下一个节点</span><br><span class="line"></span><br><span class="line">    public HeroNode(int no, String name, String nickname) &#123;</span><br><span class="line">        this.no = no;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.nickname = nickname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 重写方法</span><br><span class="line">    public String <span class="function"><span class="title">toString</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">"HeroNode [no="</span>+ no +<span class="string">" name="</span>+ name +<span class="string">" nickname="</span> + nickname +<span class="string">"]"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -836,7 +838,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
