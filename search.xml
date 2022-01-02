@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java语言实现暴力匹配算法</title>
-    <url>/2020/04/19/algorithm_BF%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">时间复杂度最坏O(n*m) 。</span><br><span class="line"></span><br><span class="line">应用广泛原因有二：</span><br><span class="line">1）实际开发中效率要比最坏情况高很多</span><br><span class="line">2）算法简单，简单是首选</span><br><span class="line"></span><br><span class="line">代码如下：</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">public static int BruteForce(String str1, String str2) &#123;</span><br><span class="line">    char[] s1 = str1.toCharArray();</span><br><span class="line">    char[] s2 = str2.toCharArray();</span><br><span class="line"></span><br><span class="line">    int s1len = s1.length;</span><br><span class="line">    int s2len = s2.length;</span><br><span class="line">    int i = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; s1len &amp;&amp; j &lt; s2len) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s1[i] == s2[j]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            i = i - (j-1);  // i-j即回到上一次的初始位置 +1后移一位</span><br><span class="line">            j = 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (j == s2.length) &#123;</span><br><span class="line">        <span class="built_in">return</span> i-j;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Prim算法解决修路问题</title>
     <url>/2020/04/20/algorithm_Prim%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E4%BF%AE%E8%B7%AF%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 普利姆算法</span><br><span class="line"> * 思路：尽可能选择少的路线，并且每条路线最小，保证总里程数最少</span><br><span class="line"> * 最小生成树：</span><br><span class="line"> * 修路的问题本质是最小生成树的问题，N个顶点，N-1条边，包含全部顶点</span><br><span class="line"> * 步骤：</span><br><span class="line"> * 1.循环访问过的节点，和没访问过的节点，找到一条最小权重的边</span><br><span class="line"> * 2.循环N-1次，找到N-1条边</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
@@ -35,12 +18,31 @@
       </tags>
   </entry>
   <entry>
-    <title>分治算法解决汉诺塔问题</title>
-    <url>/2020/04/14/algorithm_%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B%E4%B8%80/</url>
-    <content><![CDATA[<p>粘贴代码如下：</p>
+    <title>Java语言实现二分查找</title>
+    <url>/2020/04/13/algorithm_%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 循环实现</span><br><span class="line"> * 注意：1.low&lt;=high，而不是 low&lt;high</span><br><span class="line"> *      2.low和high更新 low=mid+1，high=mid-1 如果写成 low=mid 或者 high=mid，就可能会发生死循环</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class Hanoitower &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        hanoiTower(5, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void hanoiTower(int num, char a, char b, char c) &#123;</span><br><span class="line">        // 如果只有一个盘</span><br><span class="line">        <span class="keyword">if</span> (num == 1) &#123;</span><br><span class="line">            System.out.println(<span class="string">"第1个盘从 "</span> + a + <span class="string">"-&gt;"</span> + c);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            // 如果有n&gt;=2情况，我们总是可以看做2个盘，最下面是一个盘，其余的是一个盘</span><br><span class="line">            // 1.先把上面所有的盘A-&gt;B，借助C</span><br><span class="line">            hanoiTower(num-1, a, c, b);</span><br><span class="line">            // 2.最下面的盘A-&gt;C</span><br><span class="line">            System.out.println(<span class="string">"第"</span> + num + <span class="string">"个盘从 "</span> + a + <span class="string">"-&gt;"</span> + c);</span><br><span class="line">            // 3.把B塔所有的盘从B-&gt;C，借助A</span><br><span class="line">            hanoiTower(num-1, b, a, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">public static int bsearch(int[] arr, int n, int value) &#123;</span><br><span class="line">    int low = 0;</span><br><span class="line">    int high = n-1;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">        int mid = low + (high-low)/2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (arr[mid] == value) &#123;</span><br><span class="line">            <span class="built_in">return</span> mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &lt; value) &#123;</span><br><span class="line">            low = mid + 1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            high = mid - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 递归实现</span><br><span class="line">public static int bsearch(int[] arr, int low, int high, int value) &#123;</span><br><span class="line">    <span class="keyword">if</span> (low &gt; high) <span class="built_in">return</span> -1;</span><br><span class="line"></span><br><span class="line">    int mid = low + (high-low)/2;</span><br><span class="line">    <span class="keyword">if</span> (arr[mid] == value) &#123;</span><br><span class="line">        <span class="built_in">return</span> mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; value) &#123;</span><br><span class="line">        <span class="built_in">return</span> bsearch(arr, low, mid-1, value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> bsearch(arr, mid+1, high, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java语言实现暴力匹配算法</title>
+    <url>/2020/04/19/algorithm_BF%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">时间复杂度最坏O(n*m) 。</span><br><span class="line"></span><br><span class="line">应用广泛原因有二：</span><br><span class="line">1）实际开发中效率要比最坏情况高很多</span><br><span class="line">2）算法简单，简单是首选</span><br><span class="line"></span><br><span class="line">代码如下：</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">public static int BruteForce(String str1, String str2) &#123;</span><br><span class="line">    char[] s1 = str1.toCharArray();</span><br><span class="line">    char[] s2 = str2.toCharArray();</span><br><span class="line"></span><br><span class="line">    int s1len = s1.length;</span><br><span class="line">    int s2len = s2.length;</span><br><span class="line">    int i = 0;</span><br><span class="line">    int j = 0;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; s1len &amp;&amp; j &lt; s2len) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s1[i] == s2[j]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            i = i - (j-1);  // i-j即回到上一次的初始位置 +1后移一位</span><br><span class="line">            j = 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (j == s2.length) &#123;</span><br><span class="line">        <span class="built_in">return</span> i-j;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>algorithm</category>
@@ -85,14 +87,45 @@
       </tags>
   </entry>
   <entry>
-    <title>Java语言实现二分查找</title>
-    <url>/2020/04/13/algorithm_%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 循环实现</span><br><span class="line"> * 注意：1.low&lt;=high，而不是 low&lt;high</span><br><span class="line"> *      2.low和high更新 low=mid+1，high=mid-1 如果写成 low=mid 或者 high=mid，就可能会发生死循环</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+    <title>分治算法解决汉诺塔问题</title>
+    <url>/2020/04/14/algorithm_%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B%E4%B8%80/</url>
+    <content><![CDATA[<p>粘贴代码如下：</p>
+<a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class Hanoitower &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        hanoiTower(5, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void hanoiTower(int num, char a, char b, char c) &#123;</span><br><span class="line">        // 如果只有一个盘</span><br><span class="line">        <span class="keyword">if</span> (num == 1) &#123;</span><br><span class="line">            System.out.println(<span class="string">"第1个盘从 "</span> + a + <span class="string">"-&gt;"</span> + c);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            // 如果有n&gt;=2情况，我们总是可以看做2个盘，最下面是一个盘，其余的是一个盘</span><br><span class="line">            // 1.先把上面所有的盘A-&gt;B，借助C</span><br><span class="line">            hanoiTower(num-1, a, c, b);</span><br><span class="line">            // 2.最下面的盘A-&gt;C</span><br><span class="line">            System.out.println(<span class="string">"第"</span> + num + <span class="string">"个盘从 "</span> + a + <span class="string">"-&gt;"</span> + c);</span><br><span class="line">            // 3.把B塔所有的盘从B-&gt;C，借助A</span><br><span class="line">            hanoiTower(num-1, b, a, c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划解决 0-1背包问题</title>
+    <url>/2020/04/08/algorithm_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AE%9E%E4%BE%8B%E4%BA%8C/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"> 0-1背包问题算法的主要思想：</span><br><span class="line"> 利用动态规划来解决，每次遍历到的第i个物品，利用w[i]和val[i]来确定是否需要将该物品放入背包中。</span><br><span class="line"> 即对于给定的n个物品，设val[i]、w[i]分别为第i个物品的价值和重量，C为背包的容量，再令v[i][j]</span><br><span class="line"> 表示在前i个物品中能够装入容量为j的背包中的最大价值。</span><br><span class="line"> 计算公式：</span><br><span class="line">  1）v[i][0]=v[0][i]=0; // 表示表格的第一行和第一列都是0</span><br><span class="line">  2）当w[i]&gt;j时，v[i][j]=v[i-1][j] // 当准备加入新增的商品的容量大于当前背包的容量时，就直接使用上一个单元格的装入策略</span><br><span class="line">  3）当j&gt;=w[i]时，v[i][j]=max&#123;v[i-1][j], val[i]+v[i-1][j-w[i]]&#125; // 当准备加入的新增商品容量小于等于当前背包剩余容量时</span><br><span class="line">     在两者之间取最大值。v[i-1][j-w[i]] 装入i-1个商品时背包剩余容量的最大值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">粘贴代码如下：</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class KnapsackProblem &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] w = &#123;1, 4, 3&#125;;    // 物品的重量</span><br><span class="line">        int[] val = &#123;1500, 3000, 2000&#125;;   // 物品的价值</span><br><span class="line">        int m = 4;              // 背包的重量</span><br><span class="line">        KnapsackProblem kp = new KnapsackProblem();</span><br><span class="line">        kp.knapsack(w, val, m);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @param w 物品的重量</span><br><span class="line">     * @param val 物品的价值</span><br><span class="line">     * @param m 背包的重量</span><br><span class="line">     * @<span class="built_in">return</span> void</span><br><span class="line">     */</span><br><span class="line">    private void knapsack(int[] w, int[] val, int m) &#123;</span><br><span class="line">        // 物品的个数</span><br><span class="line">        int n = val.length;</span><br><span class="line">        // v[i][j] 表示在前i个物品中能够装入容量为j的背包中的最大价值</span><br><span class="line">        int[][] v = new int[n+1][m+1];</span><br><span class="line">        // 定义一个二维数组记录放入商品的情况</span><br><span class="line">        int[][] path = new int[n+1][m+1];</span><br><span class="line"></span><br><span class="line">        // 初始化第一行和第一列</span><br><span class="line">        <span class="keyword">for</span>(int i = 0; i &lt; v.length; i++) &#123;</span><br><span class="line">            v[i][0] = 0;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int i = 0; i &lt; v[0].length; i++) &#123;</span><br><span class="line">            v[0][i] = 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 根据前面的公式来动态规划处理</span><br><span class="line">        <span class="keyword">for</span>(int i=1; i&lt;v.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(int j=1; j&lt;v[0].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (w[i-1] &gt; j) &#123;</span><br><span class="line">                    v[i][j] = v[i-1][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (v[i-1][j] &lt; val[i-1] + v[i-1][j-w[i-1]]) &#123;</span><br><span class="line">                        v[i][j] = val[i-1] + v[i-1][j-w[i-1]];</span><br><span class="line">                        path[i][j] = 1;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        v[i][j] = v[i-1][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        printArr(v);</span><br><span class="line">        System.out.println(<span class="string">"=================="</span>);</span><br><span class="line"></span><br><span class="line">        // 商品放入情况</span><br><span class="line">        int i = path.length - 1;    // 行的最大下标</span><br><span class="line">        int j = path[0].length - 1; // 列的最大下标</span><br><span class="line">        <span class="keyword">while</span> (i &gt; 0 &amp;&amp; j &gt; 0) &#123;</span><br><span class="line">            <span class="keyword">if</span> (path[i][j] == 1) &#123;</span><br><span class="line">                System.out.printf(<span class="string">"第%d个商品放入背包\n"</span>, i);</span><br><span class="line">                j -= w[i-1];</span><br><span class="line">            &#125;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void printArr(int[][] arr) &#123;</span><br><span class="line">        <span class="keyword">for</span>(int i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (int j=0; j&lt;arr[i].length; j++) &#123;</span><br><span class="line">                System.out.print(arr[i][j] + <span class="string">" "</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图，深度优先和广度优先算法</title>
+    <url>/2020/03/22/algorithm_%E5%9B%BE%EF%BC%8C%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>粘贴代码如下：</p>
+<a id="more"></a>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">public static int bsearch(int[] arr, int n, int value) &#123;</span><br><span class="line">    int low = 0;</span><br><span class="line">    int high = n-1;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">        int mid = low + (high-low)/2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (arr[mid] == value) &#123;</span><br><span class="line">            <span class="built_in">return</span> mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &lt; value) &#123;</span><br><span class="line">            low = mid + 1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            high = mid - 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 递归实现</span><br><span class="line">public static int bsearch(int[] arr, int low, int high, int value) &#123;</span><br><span class="line">    <span class="keyword">if</span> (low &gt; high) <span class="built_in">return</span> -1;</span><br><span class="line"></span><br><span class="line">    int mid = low + (high-low)/2;</span><br><span class="line">    <span class="keyword">if</span> (arr[mid] == value) &#123;</span><br><span class="line">        <span class="built_in">return</span> mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[mid] &gt; value) &#123;</span><br><span class="line">        <span class="built_in">return</span> bsearch(arr, low, mid-1, value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> bsearch(arr, mid+1, high, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">import javax.swing.*;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.LinkedList;</span><br><span class="line"></span><br><span class="line">public class Graph &#123;</span><br><span class="line">    private ArrayList&lt;String&gt; vertexList;</span><br><span class="line">    private int[][] edges;</span><br><span class="line">    private int numOfEdges;</span><br><span class="line">    private boolean[] isVisited;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int n = 5;</span><br><span class="line">        String[] vertexs = &#123;<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>, <span class="string">"E"</span>&#125;;</span><br><span class="line">        Graph graph = new Graph(n);</span><br><span class="line">        <span class="keyword">for</span> (String vertex : vertexs) &#123;</span><br><span class="line">            graph.insertVertex(vertex);</span><br><span class="line">        &#125;</span><br><span class="line">        graph.insertEdge(0, 1, 1);</span><br><span class="line">        graph.insertEdge(0, 2, 1);</span><br><span class="line">        graph.insertEdge(1, 2, 1);</span><br><span class="line">        graph.insertEdge(1, 3, 1);</span><br><span class="line">        graph.insertEdge(1, 4, 1);</span><br><span class="line"></span><br><span class="line">        // 显示一把邻接矩阵</span><br><span class="line">        graph.showGraph();</span><br><span class="line"></span><br><span class="line">//        System.out.println(<span class="string">"深度遍历"</span>);</span><br><span class="line">//        graph.dfs();</span><br><span class="line"></span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"广度遍历"</span>);</span><br><span class="line">        graph.bfs();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Graph(int n) &#123;</span><br><span class="line">        edges = new int[n][n];</span><br><span class="line">        vertexList = new ArrayList&lt;String&gt;(n);</span><br><span class="line">        numOfEdges = 0;</span><br><span class="line">        isVisited = new boolean[n];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 深度优先遍历算法</span><br><span class="line">    private void dfs(boolean[] isVisited, int i) &#123;</span><br><span class="line">        System.out.print(getValueByIndex(i) + <span class="string">"-&gt;"</span>);</span><br><span class="line">        isVisited[i] = <span class="literal">true</span>;</span><br><span class="line">        int w = getFirstNeighbor(i);</span><br><span class="line">        <span class="keyword">while</span> (w != -1) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!isVisited[w]) &#123;</span><br><span class="line">                dfs(isVisited, w);</span><br><span class="line">            &#125;</span><br><span class="line">            // 根据前一个邻接节点，获取下一个邻接节点</span><br><span class="line">            w = getNextNeighbor(i, w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 对dfs进行重载，遍历所有结点，进行dfs</span><br><span class="line">    public void <span class="function"><span class="title">dfs</span></span>() &#123;</span><br><span class="line">        <span class="keyword">for</span> (int i=0; i &lt; getNumOfVertex(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isVisited[i]) &#123;</span><br><span class="line">                <span class="built_in">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dfs(isVisited, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 广度优先遍历算法</span><br><span class="line">    private void bfs(boolean[] isVisited, int i) &#123;</span><br><span class="line">        int u;</span><br><span class="line">        int w;</span><br><span class="line">        LinkedList queue = new LinkedList();</span><br><span class="line">        System.out.print(getValueByIndex(i) + <span class="string">"=&gt;"</span>);</span><br><span class="line">        isVisited[i] = <span class="literal">true</span>;</span><br><span class="line">        queue.addLast(i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> ( !queue.isEmpty()) &#123;</span><br><span class="line">            u = (Integer) queue.removeFirst();</span><br><span class="line">            w = getFirstNeighbor(u);</span><br><span class="line">            <span class="keyword">while</span> (w != -1) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!isVisited[w]) &#123;</span><br><span class="line">                    System.out.print(getValueByIndex(w) + <span class="string">"=&gt;"</span>);</span><br><span class="line">                    isVisited[w] = <span class="literal">true</span>;</span><br><span class="line">                    queue.addLast(w);</span><br><span class="line">                &#125;</span><br><span class="line">                // 根据结点u，查找w后面的一个邻结点，递归查找</span><br><span class="line">                w = getNextNeighbor(u, w);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 对bfs进行重载，遍历所有结点</span><br><span class="line">    public void <span class="function"><span class="title">bfs</span></span>() &#123;</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; getNumOfVertex(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isVisited[i]) &#123;</span><br><span class="line">                <span class="built_in">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            bfs(isVisited, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 获取第一个邻接节点的下标w</span><br><span class="line">    public int getFirstNeighbor(int index) &#123;</span><br><span class="line">        <span class="keyword">for</span> (int j = 0; j &lt; vertexList.size(); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (edges[index][j] &gt; 0) &#123;</span><br><span class="line">                <span class="built_in">return</span> j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 根据前一个邻接节点，获取下一个邻接节点</span><br><span class="line">    public int getNextNeighbor(int v1, int v2) &#123;</span><br><span class="line">        <span class="keyword">for</span> (int j = v2 + 1; j &lt; vertexList.size(); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(edges[v1][j] &gt; 0) &#123;</span><br><span class="line">                <span class="built_in">return</span> j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void insertVertex(String vertex) &#123;</span><br><span class="line">        vertexList.add(vertex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void insertEdge(int v1, int v2, int weight) &#123;</span><br><span class="line">        edges[v1][v2] = weight;</span><br><span class="line">        edges[v2][v1] = weight;</span><br><span class="line">        numOfEdges++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getValueByIndex(int i) &#123;</span><br><span class="line">        <span class="built_in">return</span> vertexList.get(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int <span class="function"><span class="title">getNumOfVertex</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> vertexList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int <span class="function"><span class="title">getNumOfEdges</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> numOfEdges;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void <span class="function"><span class="title">showGraph</span></span>() &#123;</span><br><span class="line">        <span class="keyword">for</span> (int[] link : edges) &#123;</span><br><span class="line">            System.err.println(Arrays.toString(link));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>algorithm</category>
@@ -121,61 +154,12 @@
       </tags>
   </entry>
   <entry>
-    <title>动态规划解决 0-1背包问题</title>
-    <url>/2020/04/08/algorithm_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%AE%9E%E4%BE%8B%E4%BA%8C/</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"> 0-1背包问题算法的主要思想：</span><br><span class="line"> 利用动态规划来解决，每次遍历到的第i个物品，利用w[i]和val[i]来确定是否需要将该物品放入背包中。</span><br><span class="line"> 即对于给定的n个物品，设val[i]、w[i]分别为第i个物品的价值和重量，C为背包的容量，再令v[i][j]</span><br><span class="line"> 表示在前i个物品中能够装入容量为j的背包中的最大价值。</span><br><span class="line"> 计算公式：</span><br><span class="line">  1）v[i][0]=v[0][i]=0; // 表示表格的第一行和第一列都是0</span><br><span class="line">  2）当w[i]&gt;j时，v[i][j]=v[i-1][j] // 当准备加入新增的商品的容量大于当前背包的容量时，就直接使用上一个单元格的装入策略</span><br><span class="line">  3）当j&gt;=w[i]时，v[i][j]=max&#123;v[i-1][j], val[i]+v[i-1][j-w[i]]&#125; // 当准备加入的新增商品容量小于等于当前背包剩余容量时</span><br><span class="line">     在两者之间取最大值。v[i-1][j-w[i]] 装入i-1个商品时背包剩余容量的最大值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">粘贴代码如下：</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class KnapsackProblem &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] w = &#123;1, 4, 3&#125;;    // 物品的重量</span><br><span class="line">        int[] val = &#123;1500, 3000, 2000&#125;;   // 物品的价值</span><br><span class="line">        int m = 4;              // 背包的重量</span><br><span class="line">        KnapsackProblem kp = new KnapsackProblem();</span><br><span class="line">        kp.knapsack(w, val, m);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @param w 物品的重量</span><br><span class="line">     * @param val 物品的价值</span><br><span class="line">     * @param m 背包的重量</span><br><span class="line">     * @<span class="built_in">return</span> void</span><br><span class="line">     */</span><br><span class="line">    private void knapsack(int[] w, int[] val, int m) &#123;</span><br><span class="line">        // 物品的个数</span><br><span class="line">        int n = val.length;</span><br><span class="line">        // v[i][j] 表示在前i个物品中能够装入容量为j的背包中的最大价值</span><br><span class="line">        int[][] v = new int[n+1][m+1];</span><br><span class="line">        // 定义一个二维数组记录放入商品的情况</span><br><span class="line">        int[][] path = new int[n+1][m+1];</span><br><span class="line"></span><br><span class="line">        // 初始化第一行和第一列</span><br><span class="line">        <span class="keyword">for</span>(int i = 0; i &lt; v.length; i++) &#123;</span><br><span class="line">            v[i][0] = 0;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int i = 0; i &lt; v[0].length; i++) &#123;</span><br><span class="line">            v[0][i] = 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 根据前面的公式来动态规划处理</span><br><span class="line">        <span class="keyword">for</span>(int i=1; i&lt;v.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(int j=1; j&lt;v[0].length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (w[i-1] &gt; j) &#123;</span><br><span class="line">                    v[i][j] = v[i-1][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (v[i-1][j] &lt; val[i-1] + v[i-1][j-w[i-1]]) &#123;</span><br><span class="line">                        v[i][j] = val[i-1] + v[i-1][j-w[i-1]];</span><br><span class="line">                        path[i][j] = 1;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        v[i][j] = v[i-1][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        printArr(v);</span><br><span class="line">        System.out.println(<span class="string">"=================="</span>);</span><br><span class="line"></span><br><span class="line">        // 商品放入情况</span><br><span class="line">        int i = path.length - 1;    // 行的最大下标</span><br><span class="line">        int j = path[0].length - 1; // 列的最大下标</span><br><span class="line">        <span class="keyword">while</span> (i &gt; 0 &amp;&amp; j &gt; 0) &#123;</span><br><span class="line">            <span class="keyword">if</span> (path[i][j] == 1) &#123;</span><br><span class="line">                System.out.printf(<span class="string">"第%d个商品放入背包\n"</span>, i);</span><br><span class="line">                j -= w[i-1];</span><br><span class="line">            &#125;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void printArr(int[][] arr) &#123;</span><br><span class="line">        <span class="keyword">for</span>(int i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (int j=0; j&lt;arr[i].length; j++) &#123;</span><br><span class="line">                System.out.print(arr[i][j] + <span class="string">" "</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java语言实现快排</title>
-    <url>/2020/03/26/algorithm_%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>粘贴代码如下：</p>
-<a id="more"></a>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">快排算法：</span><br><span class="line">public static void quickSort(int[] arr, int low, int high) &#123;</span><br><span class="line">    // 递归设置终止条件，当只有一个元素时</span><br><span class="line">    <span class="keyword">if</span> (low &gt;= high) &#123;</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    int i, j, tmp, t;</span><br><span class="line">    i = low;</span><br><span class="line">    j = high;</span><br><span class="line">    // 设置基准位</span><br><span class="line">    tmp = arr[low];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">        // 先从右边比较，满足条件则向左移动</span><br><span class="line">        <span class="keyword">while</span> (arr[j] &gt;= tmp &amp;&amp; i&lt;j) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        // 从左边比较，满足条件则向右移动</span><br><span class="line">        <span class="keyword">while</span> (arr[i] &lt;= tmp &amp;&amp; i&lt;j) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        // 上面2个<span class="keyword">while</span>条件都不满足时，交换左右数据</span><br><span class="line">        <span class="keyword">if</span> (i&lt;j) &#123;</span><br><span class="line">            t = arr[j];</span><br><span class="line">            arr[j] = arr[i];</span><br><span class="line">            arr[i] = t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // i==j时，和基准位交换位置</span><br><span class="line">    arr[low] = arr[i];</span><br><span class="line">    arr[i] = tmp;</span><br><span class="line">    quickSort(arr, low, i-1);</span><br><span class="line">    quickSort(arr,i+1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>php</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基数排序</title>
     <url>/2020/04/04/algorithm_%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>粘贴代码如下：</p>
 <a id="more"></a>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public static void radixSort(int[] arr) &#123;</span><br><span class="line">    // 求最大元素的长度</span><br><span class="line">    int max = arr[0];</span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &gt; max) &#123;</span><br><span class="line">            max = arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int maxLength = (max + <span class="string">""</span>).length();</span><br><span class="line"></span><br><span class="line">    // 设置10个桶</span><br><span class="line">    int[][] bucket = new int[10][arr.length];</span><br><span class="line">    // 用来记录每个桶中放入元素的个数</span><br><span class="line">    int[] bucketElementCount = new int[10];</span><br><span class="line"></span><br><span class="line">    // 从个位数，到十位数，至更高位数依次 开始循环比较</span><br><span class="line">    <span class="keyword">for</span> (int i = 0, n=1; i &lt; maxLength; i++, n *= 10) &#123;</span><br><span class="line">        // 放入桶中</span><br><span class="line">        <span class="keyword">for</span> (int j = 0; j &lt; arr.length; j++) &#123;</span><br><span class="line">            int digitOfElement = arr[j] / n % 10;</span><br><span class="line">            bucket[digitOfElement][bucketElementCount[digitOfElement]] = arr[j];</span><br><span class="line">            bucketElementCount[digitOfElement]++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 按顺序放回到原数组</span><br><span class="line">        int index = 0;</span><br><span class="line">        <span class="keyword">for</span> (int k = 0; k &lt; bucketElementCount.length; k++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (bucketElementCount[k] &gt; 0) &#123;</span><br><span class="line">                <span class="keyword">for</span> (int l = 0; l &lt; bucketElementCount[k]; l++) &#123;</span><br><span class="line">                    arr[index++] = bucket[k][l];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 每次循环使用后要回复初始值</span><br><span class="line">            bucketElementCount[k] = 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(Arrays.toString(arr));</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图，深度优先和广度优先算法</title>
-    <url>/2020/03/22/algorithm_%E5%9B%BE%EF%BC%8C%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>粘贴代码如下：</p>
-<a id="more"></a>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">import javax.swing.*;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.LinkedList;</span><br><span class="line"></span><br><span class="line">public class Graph &#123;</span><br><span class="line">    private ArrayList&lt;String&gt; vertexList;</span><br><span class="line">    private int[][] edges;</span><br><span class="line">    private int numOfEdges;</span><br><span class="line">    private boolean[] isVisited;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int n = 5;</span><br><span class="line">        String[] vertexs = &#123;<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>, <span class="string">"E"</span>&#125;;</span><br><span class="line">        Graph graph = new Graph(n);</span><br><span class="line">        <span class="keyword">for</span> (String vertex : vertexs) &#123;</span><br><span class="line">            graph.insertVertex(vertex);</span><br><span class="line">        &#125;</span><br><span class="line">        graph.insertEdge(0, 1, 1);</span><br><span class="line">        graph.insertEdge(0, 2, 1);</span><br><span class="line">        graph.insertEdge(1, 2, 1);</span><br><span class="line">        graph.insertEdge(1, 3, 1);</span><br><span class="line">        graph.insertEdge(1, 4, 1);</span><br><span class="line"></span><br><span class="line">        // 显示一把邻接矩阵</span><br><span class="line">        graph.showGraph();</span><br><span class="line"></span><br><span class="line">//        System.out.println(<span class="string">"深度遍历"</span>);</span><br><span class="line">//        graph.dfs();</span><br><span class="line"></span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"广度遍历"</span>);</span><br><span class="line">        graph.bfs();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Graph(int n) &#123;</span><br><span class="line">        edges = new int[n][n];</span><br><span class="line">        vertexList = new ArrayList&lt;String&gt;(n);</span><br><span class="line">        numOfEdges = 0;</span><br><span class="line">        isVisited = new boolean[n];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 深度优先遍历算法</span><br><span class="line">    private void dfs(boolean[] isVisited, int i) &#123;</span><br><span class="line">        System.out.print(getValueByIndex(i) + <span class="string">"-&gt;"</span>);</span><br><span class="line">        isVisited[i] = <span class="literal">true</span>;</span><br><span class="line">        int w = getFirstNeighbor(i);</span><br><span class="line">        <span class="keyword">while</span> (w != -1) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!isVisited[w]) &#123;</span><br><span class="line">                dfs(isVisited, w);</span><br><span class="line">            &#125;</span><br><span class="line">            // 根据前一个邻接节点，获取下一个邻接节点</span><br><span class="line">            w = getNextNeighbor(i, w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 对dfs进行重载，遍历所有结点，进行dfs</span><br><span class="line">    public void <span class="function"><span class="title">dfs</span></span>() &#123;</span><br><span class="line">        <span class="keyword">for</span> (int i=0; i &lt; getNumOfVertex(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isVisited[i]) &#123;</span><br><span class="line">                <span class="built_in">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            dfs(isVisited, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 广度优先遍历算法</span><br><span class="line">    private void bfs(boolean[] isVisited, int i) &#123;</span><br><span class="line">        int u;</span><br><span class="line">        int w;</span><br><span class="line">        LinkedList queue = new LinkedList();</span><br><span class="line">        System.out.print(getValueByIndex(i) + <span class="string">"=&gt;"</span>);</span><br><span class="line">        isVisited[i] = <span class="literal">true</span>;</span><br><span class="line">        queue.addLast(i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> ( !queue.isEmpty()) &#123;</span><br><span class="line">            u = (Integer) queue.removeFirst();</span><br><span class="line">            w = getFirstNeighbor(u);</span><br><span class="line">            <span class="keyword">while</span> (w != -1) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!isVisited[w]) &#123;</span><br><span class="line">                    System.out.print(getValueByIndex(w) + <span class="string">"=&gt;"</span>);</span><br><span class="line">                    isVisited[w] = <span class="literal">true</span>;</span><br><span class="line">                    queue.addLast(w);</span><br><span class="line">                &#125;</span><br><span class="line">                // 根据结点u，查找w后面的一个邻结点，递归查找</span><br><span class="line">                w = getNextNeighbor(u, w);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 对bfs进行重载，遍历所有结点</span><br><span class="line">    public void <span class="function"><span class="title">bfs</span></span>() &#123;</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; getNumOfVertex(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isVisited[i]) &#123;</span><br><span class="line">                <span class="built_in">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            bfs(isVisited, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 获取第一个邻接节点的下标w</span><br><span class="line">    public int getFirstNeighbor(int index) &#123;</span><br><span class="line">        <span class="keyword">for</span> (int j = 0; j &lt; vertexList.size(); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (edges[index][j] &gt; 0) &#123;</span><br><span class="line">                <span class="built_in">return</span> j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 根据前一个邻接节点，获取下一个邻接节点</span><br><span class="line">    public int getNextNeighbor(int v1, int v2) &#123;</span><br><span class="line">        <span class="keyword">for</span> (int j = v2 + 1; j &lt; vertexList.size(); j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(edges[v1][j] &gt; 0) &#123;</span><br><span class="line">                <span class="built_in">return</span> j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void insertVertex(String vertex) &#123;</span><br><span class="line">        vertexList.add(vertex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void insertEdge(int v1, int v2, int weight) &#123;</span><br><span class="line">        edges[v1][v2] = weight;</span><br><span class="line">        edges[v2][v1] = weight;</span><br><span class="line">        numOfEdges++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getValueByIndex(int i) &#123;</span><br><span class="line">        <span class="built_in">return</span> vertexList.get(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int <span class="function"><span class="title">getNumOfVertex</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> vertexList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int <span class="function"><span class="title">getNumOfEdges</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> numOfEdges;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void <span class="function"><span class="title">showGraph</span></span>() &#123;</span><br><span class="line">        <span class="keyword">for</span> (int[] link : edges) &#123;</span><br><span class="line">            System.err.println(Arrays.toString(link));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>algorithm</category>
@@ -199,6 +183,22 @@
       <tags>
         <tag>java</tag>
         <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java语言实现快排</title>
+    <url>/2020/03/26/algorithm_%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>粘贴代码如下：</p>
+<a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">快排算法：</span><br><span class="line">public static void quickSort(int[] arr, int low, int high) &#123;</span><br><span class="line">    // 递归设置终止条件，当只有一个元素时</span><br><span class="line">    <span class="keyword">if</span> (low &gt;= high) &#123;</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    int i, j, tmp, t;</span><br><span class="line">    i = low;</span><br><span class="line">    j = high;</span><br><span class="line">    // 设置基准位</span><br><span class="line">    tmp = arr[low];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j) &#123;</span><br><span class="line">        // 先从右边比较，满足条件则向左移动</span><br><span class="line">        <span class="keyword">while</span> (arr[j] &gt;= tmp &amp;&amp; i&lt;j) &#123;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        // 从左边比较，满足条件则向右移动</span><br><span class="line">        <span class="keyword">while</span> (arr[i] &lt;= tmp &amp;&amp; i&lt;j) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        // 上面2个<span class="keyword">while</span>条件都不满足时，交换左右数据</span><br><span class="line">        <span class="keyword">if</span> (i&lt;j) &#123;</span><br><span class="line">            t = arr[j];</span><br><span class="line">            arr[j] = arr[i];</span><br><span class="line">            arr[i] = t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // i==j时，和基准位交换位置</span><br><span class="line">    arr[low] = arr[i];</span><br><span class="line">    arr[i] = tmp;</span><br><span class="line">    quickSort(arr, low, i-1);</span><br><span class="line">    quickSort(arr,i+1, high);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>php</tag>
       </tags>
   </entry>
   <entry>
@@ -353,6 +353,23 @@
       </tags>
   </entry>
   <entry>
+    <title>选择排序</title>
+    <url>/2020/04/18/algorithm_%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"> 思路：</span><br><span class="line"> 1）选择排序有数组大小-1轮排序</span><br><span class="line"> 2）每一轮排序，又是一个循环，循环的规则：</span><br><span class="line"> 2.1）先假定当前数是最小数</span><br><span class="line"> 2.2）然后和后面的每个数进行比较，如果有更小的数，则重新确定最小数，并得到下标</span><br><span class="line"> 2.3）当遍历到数组的最后，就得到本轮最小数和下标</span><br><span class="line"> 2.4）交换</span><br><span class="line"></span><br><span class="line"> 代码：</span><br><span class="line"> 先写出最简单的第一次循环结果</span><br><span class="line"> 然后第二次、第三次，寻找规律</span><br><span class="line"></span><br><span class="line">粘贴代码如下：</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class SelectSort &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] arr = &#123;5, 9, 1, 6&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; arr.length-1; i++) &#123;</span><br><span class="line">            int min = arr[i];</span><br><span class="line">            int minindex = i;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (int j = i + 1; j &lt; arr.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (min &gt; arr[j]) &#123;</span><br><span class="line">                    min = arr[j];</span><br><span class="line">                    minindex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt; min) &#123;</span><br><span class="line">                arr[minindex]   = arr[i];</span><br><span class="line">                arr[i]          = min;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(Arrays.toString(arr));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 897.递增顺序查找树</title>
     <url>/2020/04/07/algorithm_%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE%E6%A0%91/</url>
     <content><![CDATA[<h3 id="这里的重点是理解指针"><a href="#这里的重点是理解指针" class="headerlink" title="这里的重点是理解指针"></a>这里的重点是理解指针</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1.中序遍历把二叉树转为一个递增数组</span><br><span class="line">2.声明一个变量ans，指向0节点。变量cur也指向0节点</span><br><span class="line">3.指针变量cur的右节点指向1节点，然后当前指针cur右移一位</span><br><span class="line">4.循环下来，变量ans位置没变，他的右节点就是目标右子节点树状结构</span><br></pre></td></tr></table></figure>
@@ -402,23 +419,6 @@
       </tags>
   </entry>
   <entry>
-    <title>选择排序</title>
-    <url>/2020/04/18/algorithm_%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"> 思路：</span><br><span class="line"> 1）选择排序有数组大小-1轮排序</span><br><span class="line"> 2）每一轮排序，又是一个循环，循环的规则：</span><br><span class="line"> 2.1）先假定当前数是最小数</span><br><span class="line"> 2.2）然后和后面的每个数进行比较，如果有更小的数，则重新确定最小数，并得到下标</span><br><span class="line"> 2.3）当遍历到数组的最后，就得到本轮最小数和下标</span><br><span class="line"> 2.4）交换</span><br><span class="line"></span><br><span class="line"> 代码：</span><br><span class="line"> 先写出最简单的第一次循环结果</span><br><span class="line"> 然后第二次、第三次，寻找规律</span><br><span class="line"></span><br><span class="line">粘贴代码如下：</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">public class SelectSort &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] arr = &#123;5, 9, 1, 6&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; arr.length-1; i++) &#123;</span><br><span class="line">            int min = arr[i];</span><br><span class="line">            int minindex = i;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (int j = i + 1; j &lt; arr.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (min &gt; arr[j]) &#123;</span><br><span class="line">                    min = arr[j];</span><br><span class="line">                    minindex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt; min) &#123;</span><br><span class="line">                arr[minindex]   = arr[i];</span><br><span class="line">                arr[i]          = min;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            System.out.println(Arrays.toString(arr));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java语言实现计数排序</title>
     <url>/2020/04/03/algorithm_%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>粘贴代码如下：</p>
@@ -432,260 +432,6 @@
       <tags>
         <tag>java</tag>
         <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>进程、线程和协程对比</title>
-    <url>/2021/11/11/computer_%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%8D%8F%E7%A8%8B%E5%AF%B9%E6%AF%94/</url>
-    <content><![CDATA[<p>🖥️ 计算机的核心是CPU，它承担了所有的计算任务；而操作系统是计算机的管理者，它负责任务的调度，资源的分配和管理，统领整个计算机硬件；应用程序则是具有某种功能的程序，程序是运行在操作系统上的。</p>
-<p>下面我们来简单对比一下有关应用程序的三个重要的概念：进程、线程和协程。</p>
-<a id="more"></a>
-
-<h3 id="进程"><a href="#进程" class="headerlink" title="## 进程"></a><font color=#11d17b>## </font><font face=黑体>进程</font></h3><p>进程是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，是操作系统进行资源分配和调度的一个独立单位，是应用程序运行的载体。</p>
-<h3 id="线程"><a href="#线程" class="headerlink" title="## 线程"></a><font color=#11d17b>## </font><font face=黑体>线程</font></h3><p>随着计算机的发展，进程之间的切换开销比较大，于是就有了线程。线程是程序执行中一个单一的顺序控制流程，是程序执行流的最小单元。</p>
-<blockquote>
-<p>进程和线程对比：</p>
-</blockquote>
-<ol>
-<li>进程是操作系统分配资源的最小单位，而线程是程序执行的最小单位</li>
-<li>一个进程是由一个或者多个线程组成，线程是一个进程中代码的不同执行路线</li>
-<li>进程之间相互独立，但同一进程下的各个线程之间共享程序的内存空间(包括代码段、数据集、堆等)及一些进程级的资源(如打开文件和信号)，某些进程内的线程在其他进程不可见</li>
-<li>上下文切换：线程上下文切换比进程上下文切换要快得多</li>
-</ol>
-<blockquote>
-<p>线程和协程对比：</p>
-</blockquote>
-<ol>
-<li>协程是轻量级的线程，由程序员自己来调度，因此减少了上下文切换，提高了效率</li>
-<li>线程默认Stack大小是1M，而协程接近1K。因此可以在相同的内存中开启更多的协程</li>
-</ol>
-<blockquote>
-<p>参考文章：<a href="https://juejin.cn/post/6904821235801128967#heading-24" target="_blank" rel="noopener">点击这里</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>computer</category>
-      </categories>
-      <tags>
-        <tag>computer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TCP和UDP对比</title>
-    <url>/2021/11/11/computer_TCP%E5%92%8CUDP%E5%AF%B9%E6%AF%94/</url>
-    <content><![CDATA[<p>🖥️ TCP（Transmission Control Protocol，传输控制协议）和UDP（User Data Protocol ,用户数据协议）都属于TCP/IP协议簇。两者经常用来进行比较，也是面试的高频题。</p>
-<p>下面我们来整理对比下：</p>
-<a id="more"></a>
-
-<p>相同点：都属于tcp/ip协议的传输层。</p>
-<ol>
-<li><p>连接性：TCP是面向连接的协议，在收发数据前必须和对方建立可靠的连接，建立连接的3次握手、断开连接的4次挥手，为数据传输打下可靠基础。UDP是一个面向无连接的协议，数据传输前，源端和终端不建立连接，发送端尽可能快的将数据扔到网络上，接收端从消息队列中读取消息段 (只要在应用程序获取的数据前面加上UDP头部，然后交给IP进行发送)。</p>
-</li>
-<li><p>可靠性：TCP提供可靠交付的服务，传输过程中采用许多方法保证在连接上提供可靠的传输服务，如编号与确认、流量控制、计时器等，确保数据无差错，不丢失，不重复且按序到达。UDP使用尽可能最大努力交付，但不保证可靠交付。</p>
-</li>
-<li><p>首部开销：TCP报文首部有20个字节，额外开销大。UDP报文首部只有8个字节，标题短，开销小。</p>
-</li>
-<li><p>传输方式：TCP协议面向字节流，将应用层报文看成一串无结构的字节流，分解为多个TCP报文段传输后，在目的站重新装配。UDP协议面向报文，不拆分应用层报文，只保留报文边界，一次发送一个报文，接收方去除报文首部后，原封不动将报文交给上层应用</p>
-</li>
-<li><p>连接对象个数：UDP支持一对一、一对多、多对一和多对多的交互通信。TCP只能一对一通信。</p>
-</li>
-<li><p>使用场景：TCP适合对传输效率要求低，但准确率要求高的应用场景，比如万维网(HTTP)、文件传输(FTP)、电子邮件(SMTP)等。UDP适用于对传输效率要求高，但准确率要求低的应用场景，比如域名转换(DNS)、远程文件服务器(NFS) IP电话、视频会议、直播等。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>computer</category>
-      </categories>
-      <tags>
-        <tag>computer</tag>
-        <tag>tcp</tag>
-        <tag>udp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>缓存和数据库双写一致性问题</title>
-    <url>/2021/11/03/redis_%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8C%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>🎭 使用Redis缓存，就会遇到缓存和数据库双写一致性问题。</p>
-<p>根据是否接收写请求，我们可以把缓存分成读写缓存和只读缓存。</p>
-<a id="more"></a>
-
-<h3 id="读写缓存"><a href="#读写缓存" class="headerlink" title="## 读写缓存"></a><font color=#11d17b>## </font><font face=黑体>读写缓存</font></h3><p>读写缓存指读请求、写请求都会发到缓存处理。在使用读写缓存时，最新的数据是在Redis中，而Redis是内存数据库，一旦出现掉电或宕机，内存中的数据就会丢失。</p>
-<h4 id="一致性方案"><a href="#一致性方案" class="headerlink" title="### 一致性方案"></a><font color=#11d17b>### </font><font face=黑体>一致性方案</font></h4><p>写缓存时，也同步写数据库，缓存和数据库中的数据一致；在业务应用中采用事务机制，来保证缓存和数据库的更新具有原子性。</p>
-<h3 id="只读缓存"><a href="#只读缓存" class="headerlink" title="## 只读缓存"></a><font color=#11d17b>## </font><font face=黑体>只读缓存</font></h3><p>只读缓存指读请求会先经过Redis，写操作不会经过Redis，但是会删除相应的数据。当再次读取数据时，会发生缓存缺失，然后从数据库中读取并写入缓存。</p>
-<h4 id="一致性方案-1"><a href="#一致性方案-1" class="headerlink" title="### 一致性方案"></a><font color=#11d17b>### </font><font face=黑体>一致性方案</font></h4><p>只读缓存比较复杂，用一张表进行总结：</p>
-<img src="/images/只读缓存.png" width="80%" height="80%">
-
-<blockquote>
-<p>延迟双删：在线程 A 更新完数据库值以后，我们可以让它先 sleep 一小段时间，等线程 B、C 先从数据库读取数据，再把缺失的数据写入缓存，然后，线程 A 再进行删除。</p>
-</blockquote>
-<p>伪代码:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">redis.delKey(X)</span><br><span class="line">db.update(X)</span><br><span class="line">Thread.sleep(N)</span><br><span class="line">redis.delKey(X)</span><br></pre></td></tr></table></figure>
-
-<h4 id="小结"><a href="#小结" class="headerlink" title="### 小结"></a><font color=#11d17b>### </font><font face=黑体>小结</font></h4><p>对比可知，先更新数据库再删除缓存的方法较好。</p>
-<p>原因有二：</p>
-<ul>
-<li>如果先删除缓存值再更新数据库，有可能导致请求因缓存缺失而访问数据库，给数据库带来压力。</li>
-<li>延时双删中的等待时间不好估算。</li>
-</ul>
-<p>实际操作中，我们更新数据库时，先在 Redis 缓存客户端暂存并发读请求，等数据库更新完、缓存值删除后，再读取数据，就保证了数据的全部一致性。</p>
-]]></content>
-      <categories>
-        <category>redis</category>
-      </categories>
-      <tags>
-        <tag>redis</tag>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redis缓存满了怎么办</title>
-    <url>/2021/11/14/redis_%E7%BC%93%E5%AD%98%E6%BB%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E/</url>
-    <content><![CDATA[<p>🥡 在高并发场景，缓存被大量使用的情况下，不免会出现一种情况：缓存满了。<br>下面我们谈一下这样的情况怎么处理。</p>
-<a id="more"></a>
-
-<h3 id="缓存容量"><a href="#缓存容量" class="headerlink" title="## 缓存容量"></a><font color=#11d17b>## </font><font face=黑体>缓存容量</font></h3><p>为了避免缓存过早被写满，我们需要根据应用数据访问特征和成本开销来综合考虑缓存容量的大小，一般会把缓存容量设置为总数据量的15%-30%。</p>
-<blockquote>
-<p>命令：CONFIG SET maxmemory 4gb (4gb是举个🌰)</p>
-</blockquote>
-<h3 id="淘汰策略"><a href="#淘汰策略" class="headerlink" title="## 淘汰策略"></a><font color=#11d17b>## </font><font face=黑体>淘汰策略</font></h3><p>缓存写满是不可避免的，Redis有自己的缓存淘汰策略，在4.0版本之前有6中淘汰策略：</p>
-<ol>
-<li>noeviction(默认策略): 若内存大小达到了maxmemory值，并不会淘汰数据，再有写请求时，Redis直接返回错误。</li>
-<li>allkeys-lru: 所有key都是使用LRU算法进行淘汰。</li>
-<li>volatile-lru: 所有设置了过期时间的key使用LRU算法进行淘汰。</li>
-<li>allkeys-random: 所有key使用随机淘汰的方式进行淘汰。</li>
-<li>volatile-random: 所有设置了过期时间的key使用随机淘汰的方式进行淘汰。</li>
-<li>volatile-ttl: 所有设置了过期时间的key根据过期时间进行淘汰，越早过期越早被淘汰。</li>
-</ol>
-<p>在4.0版本之后又增加了2种:</p>
-<ol start="7">
-<li>allkeys-lfu: 所有key都是使用LFU算法进行淘汰。</li>
-<li>volatile-lfu: 所有设置了过期时间的key使用LFU算法进行淘汰。</li>
-</ol>
-<h4 id="LRU算法"><a href="#LRU算法" class="headerlink" title="### LRU算法"></a><font color=#11d17b>### </font><font face=黑体>LRU算法</font></h4><p>我们先来讲讲LRU算法，LRU全称是 Least Recently Used, 即 按照最近最少使用的原则来筛选数据，最不常使用的数据会被筛选出来进行淘汰。</p>
-<p>底层原理：<br>LRU用一个链表来维护数据，链表头部是MRU端，代表最最近常使用的数据；尾部是LRU端，代表最近不常用的数据。数据访问时根据移动链表来维护数据的最近常用性。</p>
-<p>LRU算法有两个问题：</p>
-<ol>
-<li>用链表管理所有的缓存数据会带来额外的空间开销。</li>
-<li>大量数据访问时，链表的移动操作很耗时，会降低Redis的缓存性能。</li>
-</ol>
-<p>在Redis中，对LRU算法做了简化:</p>
-<p>Redis默认会记录每个数据最近一次访问的时间戳(由对象来维护{lru:时间戳})，淘汰数据时第一次会随机筛选出N个数据，放到一个候选链表当中，把时间戳最小的淘汰。</p>
-<blockquote>
-<p>N 用配置参数 maxmemory-samples 来设置</p>
-</blockquote>
-<p>当再次淘汰数据时，Redis会挑选时间戳小于候选链表中最小时间戳的数据放到候选链表中，然后把时间戳最小的淘汰出去。</p>
-<h4 id="LFU算法"><a href="#LFU算法" class="headerlink" title="### LFU算法"></a><font color=#11d17b>### </font><font face=黑体>LFU算法</font></h4><p>Redis从4.0版本之后增加了LFU策略，是对LRU策略的进一步优化。全称 Least Frequently Used。</p>
-<p>核心思想:<br>根据key最近被访问的频率进行淘汰。即，优先淘汰最近访问频率小的数据，如果频率相同，则淘汰最近最少使用的数据。</p>
-<p>底层原理：<br>把lru策略中的lru字段(24bit)差分成两部分，前16bit为ldt值来表示数据访问的时间戳，后8bit为counter值，表示数据的访问次数。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="## 解决方案"></a><font color=#11d17b>## </font><font face=黑体>解决方案</font></h3><ol>
-<li>如果一部分是热点数据，一部分是冷门数据这样的缓存分布情况，建议使用allkeys-lru或者allkeys-lfu策略。</li>
-<li>如果业务应用中数据访问频率相差不大，建议用allkeys-random策略。</li>
-<li>如果业务中有置顶的需求，可以使用volatile-lru或者volatile-lfu策略，同时不给这些置顶数据设置过期时间。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>redis</category>
-      </categories>
-      <tags>
-        <tag>redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo遇到的坑</title>
-    <url>/2021/10/28/web_Hexo/</url>
-    <content><![CDATA[<p>🍗 换电脑之后重新部署Hexo，遇到一些坑，整理一下</p>
-<a id="more"></a>
-
-<ol>
-<li><p>Hexo在node高版本下，部署不成功。最后安装的node版本为 v12.0, OK了</p>
-</li>
-<li><p>很多不同的软件都不支持node的最新版本，这是大坑。今天才知道可以用 nvm 来管理不同版本的node，可以来回切换。</p>
-</li>
-<li><p>当hexo命令不被识别，需要重新安装：npm install hexo-cli -g<br>如果还没效果，那就卸载node，然后重新安装node，然后hexo</p>
-</li>
-<li><p>博客代码部署上，使用的是Hexo的一键部署，hexo -d 把 public 目录推送到github上仓库1，覆盖静态文件。然后整个项目关联到github上仓库2.<br>这样项目代码由仓库2维护，git pull/push. 博客静态文件由仓库1部署展示。</p>
-</li>
-<li><p>Hexo主题themes/next 文件夹无法提交到GitHub:</p>
-<ul>
-<li>原因：themes/next也是从仓库里拉取下来的 他关联到了作者的git仓库, 所以提交不上去</li>
-<li>解决方法:<br>a) 从暂存区删除该文件夹: git rm –cache themes/next<br>b) 把 themes/next/.git文件夹重命名为themes/hexo-theme-icarus/.git.bak<br>c) git add .   git commit -m “add themes” 即可</li>
-</ul>
-</li>
-<li><p>具体建站，看<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官网手册</a></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>nodejs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>缓存雪崩、击穿、穿透</title>
-    <url>/2021/11/02/redis_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/</url>
-    <content><![CDATA[<p>💣 生产环境中经常面临缓存异常的三个问题，分别是缓存雪崩、缓存击穿和缓存穿透。问题一旦产生，大量请求积压到数据库层，甚至会产生宕机。</p>
-<a id="more"></a>
-
-<p>下面我们分别谈一下：</p>
-<h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="## 缓存雪崩"></a><font color=#11d17b>## </font><font face=黑体>缓存雪崩</font></h3><p>缓存雪崩是指大量的应用请求无法在Redis缓存中进行处理，紧接着，应用将大量请求发送到数据库层，导致数据库层的压力激增。关键点：大量key失效。</p>
-<p>通常有两个原因：</p>
-<h4 id="原因一"><a href="#原因一" class="headerlink" title="### 原因一"></a><font color=#11d17b>### </font><font face=黑体>原因一</font></h4><p>缓存中有大量的数据同时过期，导致大量请求无法得到处理。</p>
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="### 解决方案"></a><font color=#11d17b>### </font><font face=黑体>解决方案</font></h4><ol>
-<li>避免给大量的数据设置相同的过期时间。如果业务层要求某些数据同时失效，可以设置失效时间时进行微调，比如失效时间上添加随机数。</li>
-<li>服务降级，针对不同的数据采取不同的处理方式<ul>
-<li>访问非核心数据时，暂时停止访问缓存，直接返回预定义信息或错误信息。</li>
-<li>访问核心数据时，仍然查询缓存，如果缓存失效则查询数据库。</li>
-</ul>
-</li>
-</ol>
-<h4 id="原因二"><a href="#原因二" class="headerlink" title="### 原因二"></a><font color=#11d17b>### </font><font face=黑体>原因二</font></h4><p>Redis缓存实例发生故障宕机了，无法处理请求</p>
-<h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="### 解决方案"></a><font color=#11d17b>### </font><font face=黑体>解决方案</font></h4><ol>
-<li>在业务系统中实现服务熔断或请求限流机制。<ul>
-<li>服务熔断机制是指暂停对缓存系统和数据库的访问，直接return。</li>
-<li>限流是指在前端限制每秒请求系统的次数。</li>
-</ul>
-</li>
-<li>事先预防。<ul>
-<li>通过主从节点的方式构建Redis缓存高可靠集群。如果Redis缓存的主节点宕机了，从节点可以切换为主节点，继续提供缓存服务。</li>
-</ul>
-</li>
-</ol>
-<h3 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="## 缓存击穿"></a><font color=#11d17b>## </font><font face=黑体>缓存击穿</font></h3><p>缓存击穿是指，针对某个访问非常频繁的热点数据的请求，一旦这个key失效了，访问会堆积到数据库层，导致数据库压力激增。</p>
-<h4 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="### 解决方案"></a><font color=#11d17b>### </font><font face=黑体>解决方案</font></h4><ol>
-<li><p>对访问特别频繁的热点数据不设置过期时间。</p>
-</li>
-<li><p>使用互斥锁。</p>
-<ul>
-<li><p>在缓存失效的时候，不是立即查询数据库，而是先使用Redis设置互斥锁(setnx设置一个mutex key)，当设置成功时，再查询数据库并设置缓存，否则就sleep之后再请求。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getProductDescById</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">    String desc = redis.get(id);</span><br><span class="line">    <span class="comment">// 缓存为空，过期了</span></span><br><span class="line">    <span class="keyword">if</span> (desc == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 互斥锁，只有一个请求可以成功</span></span><br><span class="line">        <span class="keyword">if</span> (redis.setnx(lock_id, <span class="number">1</span>, <span class="number">60</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">// 从数据库取出数据</span></span><br><span class="line">                desc = getFromDB(id);</span><br><span class="line">                redis.set(id, desc, <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">                LogHelper.error(ex);</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                <span class="comment">// 确保最后删除，释放锁</span></span><br><span class="line">                redis.del(lock_id);</span><br><span class="line">                <span class="keyword">return</span> desc;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 否则睡眠1000ms，接着获取锁</span></span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            <span class="keyword">return</span> getProductDescById(id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="## 缓存穿透"></a><font color=#11d17b>## </font><font face=黑体>缓存穿透</font></h3><p>缓存穿透是指要访问的数据既不在Redis缓存中，也不在数据库中，大量请求给缓存和数据库带来巨大压力。</p>
-<h4 id="原因一-1"><a href="#原因一-1" class="headerlink" title="### 原因一"></a><font color=#11d17b>### </font><font face=黑体>原因一</font></h4><p>业务层误操作，缓存中的数据和数据库中的数据被删除了。</p>
-<h4 id="原因二-1"><a href="#原因二-1" class="headerlink" title="### 原因二"></a><font color=#11d17b>### </font><font face=黑体>原因二</font></h4><p>恶意攻击，专门访问数据库中没有的数据。</p>
-<h4 id="解决方案-3"><a href="#解决方案-3" class="headerlink" title="### 解决方案"></a><font color=#11d17b>### </font><font face=黑体>解决方案</font></h4><ol>
-<li>缓存空值或协商好的缺省值。这样直接返回，就不用访问数据库了。</li>
-<li>使用布隆过滤器快速判断数据是否存在，避免查询数据库。<ul>
-<li>原理是将数据的多个哈希值存放到一个足够大的bit数组中，查询时只要有一个哈希值不存在则返回，完成快速检测。</li>
-</ul>
-</li>
-<li>在请求入口的前端进行请求检测。<ul>
-<li>把请求参数不合理、请求参数是非法值、请求字段不存在等恶意请求直接过滤掉。</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>redis</category>
-      </categories>
-      <tags>
-        <tag>redis</tag>
       </tags>
   </entry>
   <entry>
@@ -858,6 +604,260 @@
       <tags>
         <tag>CentOS</tag>
         <tag>network</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TCP和UDP对比</title>
+    <url>/2021/11/11/computer_TCP%E5%92%8CUDP%E5%AF%B9%E6%AF%94/</url>
+    <content><![CDATA[<p>🖥️ TCP（Transmission Control Protocol，传输控制协议）和UDP（User Data Protocol ,用户数据协议）都属于TCP/IP协议簇。两者经常用来进行比较，也是面试的高频题。</p>
+<p>下面我们来整理对比下：</p>
+<a id="more"></a>
+
+<p>相同点：都属于tcp/ip协议的传输层。</p>
+<ol>
+<li><p>连接性：TCP是面向连接的协议，在收发数据前必须和对方建立可靠的连接，建立连接的3次握手、断开连接的4次挥手，为数据传输打下可靠基础。UDP是一个面向无连接的协议，数据传输前，源端和终端不建立连接，发送端尽可能快的将数据扔到网络上，接收端从消息队列中读取消息段 (只要在应用程序获取的数据前面加上UDP头部，然后交给IP进行发送)。</p>
+</li>
+<li><p>可靠性：TCP提供可靠交付的服务，传输过程中采用许多方法保证在连接上提供可靠的传输服务，如编号与确认、流量控制、计时器等，确保数据无差错，不丢失，不重复且按序到达。UDP使用尽可能最大努力交付，但不保证可靠交付。</p>
+</li>
+<li><p>首部开销：TCP报文首部有20个字节，额外开销大。UDP报文首部只有8个字节，标题短，开销小。</p>
+</li>
+<li><p>传输方式：TCP协议面向字节流，将应用层报文看成一串无结构的字节流，分解为多个TCP报文段传输后，在目的站重新装配。UDP协议面向报文，不拆分应用层报文，只保留报文边界，一次发送一个报文，接收方去除报文首部后，原封不动将报文交给上层应用</p>
+</li>
+<li><p>连接对象个数：UDP支持一对一、一对多、多对一和多对多的交互通信。TCP只能一对一通信。</p>
+</li>
+<li><p>使用场景：TCP适合对传输效率要求低，但准确率要求高的应用场景，比如万维网(HTTP)、文件传输(FTP)、电子邮件(SMTP)等。UDP适用于对传输效率要求高，但准确率要求低的应用场景，比如域名转换(DNS)、远程文件服务器(NFS) IP电话、视频会议、直播等。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>computer</category>
+      </categories>
+      <tags>
+        <tag>computer</tag>
+        <tag>tcp</tag>
+        <tag>udp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>进程、线程和协程对比</title>
+    <url>/2021/11/11/computer_%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%8D%8F%E7%A8%8B%E5%AF%B9%E6%AF%94/</url>
+    <content><![CDATA[<p>🖥️ 计算机的核心是CPU，它承担了所有的计算任务；而操作系统是计算机的管理者，它负责任务的调度，资源的分配和管理，统领整个计算机硬件；应用程序则是具有某种功能的程序，程序是运行在操作系统上的。</p>
+<p>下面我们来简单对比一下有关应用程序的三个重要的概念：进程、线程和协程。</p>
+<a id="more"></a>
+
+<h3 id="进程"><a href="#进程" class="headerlink" title="## 进程"></a><font color=#11d17b>## </font><font face=黑体>进程</font></h3><p>进程是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，是操作系统进行资源分配和调度的一个独立单位，是应用程序运行的载体。</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="## 线程"></a><font color=#11d17b>## </font><font face=黑体>线程</font></h3><p>随着计算机的发展，进程之间的切换开销比较大，于是就有了线程。线程是程序执行中一个单一的顺序控制流程，是程序执行流的最小单元。</p>
+<blockquote>
+<p>进程和线程对比：</p>
+</blockquote>
+<ol>
+<li>进程是操作系统分配资源的最小单位，而线程是程序执行的最小单位</li>
+<li>一个进程是由一个或者多个线程组成，线程是一个进程中代码的不同执行路线</li>
+<li>进程之间相互独立，但同一进程下的各个线程之间共享程序的内存空间(包括代码段、数据集、堆等)及一些进程级的资源(如打开文件和信号)，某些进程内的线程在其他进程不可见</li>
+<li>上下文切换：线程上下文切换比进程上下文切换要快得多</li>
+</ol>
+<blockquote>
+<p>线程和协程对比：</p>
+</blockquote>
+<ol>
+<li>协程是轻量级的线程，由程序员自己来调度，因此减少了上下文切换，提高了效率</li>
+<li>线程默认Stack大小是1M，而协程接近1K。因此可以在相同的内存中开启更多的协程</li>
+</ol>
+<blockquote>
+<p>参考文章：<a href="https://juejin.cn/post/6904821235801128967#heading-24" target="_blank" rel="noopener">点击这里</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>computer</category>
+      </categories>
+      <tags>
+        <tag>computer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis缓存满了怎么办</title>
+    <url>/2021/11/14/redis_%E7%BC%93%E5%AD%98%E6%BB%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E/</url>
+    <content><![CDATA[<p>🥡 在高并发场景，缓存被大量使用的情况下，不免会出现一种情况：缓存满了。<br>下面我们谈一下这样的情况怎么处理。</p>
+<a id="more"></a>
+
+<h3 id="缓存容量"><a href="#缓存容量" class="headerlink" title="## 缓存容量"></a><font color=#11d17b>## </font><font face=黑体>缓存容量</font></h3><p>为了避免缓存过早被写满，我们需要根据应用数据访问特征和成本开销来综合考虑缓存容量的大小，一般会把缓存容量设置为总数据量的15%-30%。</p>
+<blockquote>
+<p>命令：CONFIG SET maxmemory 4gb (4gb是举个🌰)</p>
+</blockquote>
+<h3 id="淘汰策略"><a href="#淘汰策略" class="headerlink" title="## 淘汰策略"></a><font color=#11d17b>## </font><font face=黑体>淘汰策略</font></h3><p>缓存写满是不可避免的，Redis有自己的缓存淘汰策略，在4.0版本之前有6中淘汰策略：</p>
+<ol>
+<li>noeviction(默认策略): 若内存大小达到了maxmemory值，并不会淘汰数据，再有写请求时，Redis直接返回错误。</li>
+<li>allkeys-lru: 所有key都是使用LRU算法进行淘汰。</li>
+<li>volatile-lru: 所有设置了过期时间的key使用LRU算法进行淘汰。</li>
+<li>allkeys-random: 所有key使用随机淘汰的方式进行淘汰。</li>
+<li>volatile-random: 所有设置了过期时间的key使用随机淘汰的方式进行淘汰。</li>
+<li>volatile-ttl: 所有设置了过期时间的key根据过期时间进行淘汰，越早过期越早被淘汰。</li>
+</ol>
+<p>在4.0版本之后又增加了2种:</p>
+<ol start="7">
+<li>allkeys-lfu: 所有key都是使用LFU算法进行淘汰。</li>
+<li>volatile-lfu: 所有设置了过期时间的key使用LFU算法进行淘汰。</li>
+</ol>
+<h4 id="LRU算法"><a href="#LRU算法" class="headerlink" title="### LRU算法"></a><font color=#11d17b>### </font><font face=黑体>LRU算法</font></h4><p>我们先来讲讲LRU算法，LRU全称是 Least Recently Used, 即 按照最近最少使用的原则来筛选数据，最不常使用的数据会被筛选出来进行淘汰。</p>
+<p>底层原理：<br>LRU用一个链表来维护数据，链表头部是MRU端，代表最最近常使用的数据；尾部是LRU端，代表最近不常用的数据。数据访问时根据移动链表来维护数据的最近常用性。</p>
+<p>LRU算法有两个问题：</p>
+<ol>
+<li>用链表管理所有的缓存数据会带来额外的空间开销。</li>
+<li>大量数据访问时，链表的移动操作很耗时，会降低Redis的缓存性能。</li>
+</ol>
+<p>在Redis中，对LRU算法做了简化:</p>
+<p>Redis默认会记录每个数据最近一次访问的时间戳(由对象来维护{lru:时间戳})，淘汰数据时第一次会随机筛选出N个数据，放到一个候选链表当中，把时间戳最小的淘汰。</p>
+<blockquote>
+<p>N 用配置参数 maxmemory-samples 来设置</p>
+</blockquote>
+<p>当再次淘汰数据时，Redis会挑选时间戳小于候选链表中最小时间戳的数据放到候选链表中，然后把时间戳最小的淘汰出去。</p>
+<h4 id="LFU算法"><a href="#LFU算法" class="headerlink" title="### LFU算法"></a><font color=#11d17b>### </font><font face=黑体>LFU算法</font></h4><p>Redis从4.0版本之后增加了LFU策略，是对LRU策略的进一步优化。全称 Least Frequently Used。</p>
+<p>核心思想:<br>根据key最近被访问的频率进行淘汰。即，优先淘汰最近访问频率小的数据，如果频率相同，则淘汰最近最少使用的数据。</p>
+<p>底层原理：<br>把lru策略中的lru字段(24bit)差分成两部分，前16bit为ldt值来表示数据访问的时间戳，后8bit为counter值，表示数据的访问次数。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="## 解决方案"></a><font color=#11d17b>## </font><font face=黑体>解决方案</font></h3><ol>
+<li>如果一部分是热点数据，一部分是冷门数据这样的缓存分布情况，建议使用allkeys-lru或者allkeys-lfu策略。</li>
+<li>如果业务应用中数据访问频率相差不大，建议用allkeys-random策略。</li>
+<li>如果业务中有置顶的需求，可以使用volatile-lru或者volatile-lfu策略，同时不给这些置顶数据设置过期时间。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>缓存和数据库双写一致性问题</title>
+    <url>/2021/11/03/redis_%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8C%E5%86%99%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>🎭 使用Redis缓存，就会遇到缓存和数据库双写一致性问题。</p>
+<p>根据是否接收写请求，我们可以把缓存分成读写缓存和只读缓存。</p>
+<a id="more"></a>
+
+<h3 id="读写缓存"><a href="#读写缓存" class="headerlink" title="## 读写缓存"></a><font color=#11d17b>## </font><font face=黑体>读写缓存</font></h3><p>读写缓存指读请求、写请求都会发到缓存处理。在使用读写缓存时，最新的数据是在Redis中，而Redis是内存数据库，一旦出现掉电或宕机，内存中的数据就会丢失。</p>
+<h4 id="一致性方案"><a href="#一致性方案" class="headerlink" title="### 一致性方案"></a><font color=#11d17b>### </font><font face=黑体>一致性方案</font></h4><p>写缓存时，也同步写数据库，缓存和数据库中的数据一致；在业务应用中采用事务机制，来保证缓存和数据库的更新具有原子性。</p>
+<h3 id="只读缓存"><a href="#只读缓存" class="headerlink" title="## 只读缓存"></a><font color=#11d17b>## </font><font face=黑体>只读缓存</font></h3><p>只读缓存指读请求会先经过Redis，写操作不会经过Redis，但是会删除相应的数据。当再次读取数据时，会发生缓存缺失，然后从数据库中读取并写入缓存。</p>
+<h4 id="一致性方案-1"><a href="#一致性方案-1" class="headerlink" title="### 一致性方案"></a><font color=#11d17b>### </font><font face=黑体>一致性方案</font></h4><p>只读缓存比较复杂，用一张表进行总结：</p>
+<img src="/images/只读缓存.png" width="80%" height="80%">
+
+<blockquote>
+<p>延迟双删：在线程 A 更新完数据库值以后，我们可以让它先 sleep 一小段时间，等线程 B、C 先从数据库读取数据，再把缺失的数据写入缓存，然后，线程 A 再进行删除。</p>
+</blockquote>
+<p>伪代码:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">redis.delKey(X)</span><br><span class="line">db.update(X)</span><br><span class="line">Thread.sleep(N)</span><br><span class="line">redis.delKey(X)</span><br></pre></td></tr></table></figure>
+
+<h4 id="小结"><a href="#小结" class="headerlink" title="### 小结"></a><font color=#11d17b>### </font><font face=黑体>小结</font></h4><p>对比可知，先更新数据库再删除缓存的方法较好。</p>
+<p>原因有二：</p>
+<ul>
+<li>如果先删除缓存值再更新数据库，有可能导致请求因缓存缺失而访问数据库，给数据库带来压力。</li>
+<li>延时双删中的等待时间不好估算。</li>
+</ul>
+<p>实际操作中，我们更新数据库时，先在 Redis 缓存客户端暂存并发读请求，等数据库更新完、缓存值删除后，再读取数据，就保证了数据的全部一致性。</p>
+]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>缓存雪崩、击穿、穿透</title>
+    <url>/2021/11/02/redis_%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9/</url>
+    <content><![CDATA[<p>💣 生产环境中经常面临缓存异常的三个问题，分别是缓存雪崩、缓存击穿和缓存穿透。问题一旦产生，大量请求积压到数据库层，甚至会产生宕机。</p>
+<a id="more"></a>
+
+<p>下面我们分别谈一下：</p>
+<h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="## 缓存雪崩"></a><font color=#11d17b>## </font><font face=黑体>缓存雪崩</font></h3><p>缓存雪崩是指大量的应用请求无法在Redis缓存中进行处理，紧接着，应用将大量请求发送到数据库层，导致数据库层的压力激增。关键点：大量key失效。</p>
+<p>通常有两个原因：</p>
+<h4 id="原因一"><a href="#原因一" class="headerlink" title="### 原因一"></a><font color=#11d17b>### </font><font face=黑体>原因一</font></h4><p>缓存中有大量的数据同时过期，导致大量请求无法得到处理。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="### 解决方案"></a><font color=#11d17b>### </font><font face=黑体>解决方案</font></h4><ol>
+<li>避免给大量的数据设置相同的过期时间。如果业务层要求某些数据同时失效，可以设置失效时间时进行微调，比如失效时间上添加随机数。</li>
+<li>服务降级，针对不同的数据采取不同的处理方式<ul>
+<li>访问非核心数据时，暂时停止访问缓存，直接返回预定义信息或错误信息。</li>
+<li>访问核心数据时，仍然查询缓存，如果缓存失效则查询数据库。</li>
+</ul>
+</li>
+</ol>
+<h4 id="原因二"><a href="#原因二" class="headerlink" title="### 原因二"></a><font color=#11d17b>### </font><font face=黑体>原因二</font></h4><p>Redis缓存实例发生故障宕机了，无法处理请求</p>
+<h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="### 解决方案"></a><font color=#11d17b>### </font><font face=黑体>解决方案</font></h4><ol>
+<li>在业务系统中实现服务熔断或请求限流机制。<ul>
+<li>服务熔断机制是指暂停对缓存系统和数据库的访问，直接return。</li>
+<li>限流是指在前端限制每秒请求系统的次数。</li>
+</ul>
+</li>
+<li>事先预防。<ul>
+<li>通过主从节点的方式构建Redis缓存高可靠集群。如果Redis缓存的主节点宕机了，从节点可以切换为主节点，继续提供缓存服务。</li>
+</ul>
+</li>
+</ol>
+<h3 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="## 缓存击穿"></a><font color=#11d17b>## </font><font face=黑体>缓存击穿</font></h3><p>缓存击穿是指，针对某个访问非常频繁的热点数据的请求，一旦这个key失效了，访问会堆积到数据库层，导致数据库压力激增。</p>
+<h4 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="### 解决方案"></a><font color=#11d17b>### </font><font face=黑体>解决方案</font></h4><ol>
+<li><p>对访问特别频繁的热点数据不设置过期时间。</p>
+</li>
+<li><p>使用互斥锁。</p>
+<ul>
+<li><p>在缓存失效的时候，不是立即查询数据库，而是先使用Redis设置互斥锁(setnx设置一个mutex key)，当设置成功时，再查询数据库并设置缓存，否则就sleep之后再请求。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getProductDescById</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">    String desc = redis.get(id);</span><br><span class="line">    <span class="comment">// 缓存为空，过期了</span></span><br><span class="line">    <span class="keyword">if</span> (desc == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 互斥锁，只有一个请求可以成功</span></span><br><span class="line">        <span class="keyword">if</span> (redis.setnx(lock_id, <span class="number">1</span>, <span class="number">60</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">// 从数据库取出数据</span></span><br><span class="line">                desc = getFromDB(id);</span><br><span class="line">                redis.set(id, desc, <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">                LogHelper.error(ex);</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                <span class="comment">// 确保最后删除，释放锁</span></span><br><span class="line">                redis.del(lock_id);</span><br><span class="line">                <span class="keyword">return</span> desc;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 否则睡眠1000ms，接着获取锁</span></span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            <span class="keyword">return</span> getProductDescById(id);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="## 缓存穿透"></a><font color=#11d17b>## </font><font face=黑体>缓存穿透</font></h3><p>缓存穿透是指要访问的数据既不在Redis缓存中，也不在数据库中，大量请求给缓存和数据库带来巨大压力。</p>
+<h4 id="原因一-1"><a href="#原因一-1" class="headerlink" title="### 原因一"></a><font color=#11d17b>### </font><font face=黑体>原因一</font></h4><p>业务层误操作，缓存中的数据和数据库中的数据被删除了。</p>
+<h4 id="原因二-1"><a href="#原因二-1" class="headerlink" title="### 原因二"></a><font color=#11d17b>### </font><font face=黑体>原因二</font></h4><p>恶意攻击，专门访问数据库中没有的数据。</p>
+<h4 id="解决方案-3"><a href="#解决方案-3" class="headerlink" title="### 解决方案"></a><font color=#11d17b>### </font><font face=黑体>解决方案</font></h4><ol>
+<li>缓存空值或协商好的缺省值。这样直接返回，就不用访问数据库了。</li>
+<li>使用布隆过滤器快速判断数据是否存在，避免查询数据库。<ul>
+<li>原理是将数据的多个哈希值存放到一个足够大的bit数组中，查询时只要有一个哈希值不存在则返回，完成快速检测。</li>
+</ul>
+</li>
+<li>在请求入口的前端进行请求检测。<ul>
+<li>把请求参数不合理、请求参数是非法值、请求字段不存在等恶意请求直接过滤掉。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo遇到的坑</title>
+    <url>/2021/10/28/web_Hexo/</url>
+    <content><![CDATA[<p>🍗 换电脑之后重新部署Hexo，遇到一些坑，整理一下</p>
+<a id="more"></a>
+
+<ol>
+<li><p>Hexo在node高版本下，部署不成功。最后安装的node版本为 v12.0, OK了</p>
+</li>
+<li><p>很多不同的软件都不支持node的最新版本，这是大坑。今天才知道可以用 nvm 来管理不同版本的node，可以来回切换。</p>
+</li>
+<li><p>当hexo命令不被识别，需要重新安装：npm install hexo-cli -g<br>如果还没效果，那就卸载node，然后重新安装node，然后hexo</p>
+</li>
+<li><p>博客代码部署上，使用的是Hexo的一键部署，hexo -d 把 public 目录推送到github上仓库1，覆盖静态文件。然后整个项目关联到github上仓库2.<br>这样项目代码由仓库2维护，git pull/push. 博客静态文件由仓库1部署展示。</p>
+</li>
+<li><p>Hexo主题themes/next 文件夹无法提交到GitHub:</p>
+<ul>
+<li>原因：themes/next也是从仓库里拉取下来的 他关联到了作者的git仓库, 所以提交不上去</li>
+<li>解决方法:<br>a) 从暂存区删除该文件夹: git rm –cache themes/next<br>b) 把 themes/next/.git文件夹重命名为themes/hexo-theme-icarus/.git.bak<br>c) git add .   git commit -m “add themes” 即可</li>
+</ul>
+</li>
+<li><p>具体建站，看<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官网手册</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>nodejs</tag>
       </tags>
   </entry>
 </search>
