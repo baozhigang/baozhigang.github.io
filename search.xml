@@ -1094,4 +1094,38 @@ Error: No such file or directory - /usr/local/var/homebrew/linked/php@7.4</code>
         <tag>Composer</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Maven 常用命令</title>
+    <url>/2022/08/22/maven/</url>
+    <content><![CDATA[<p>官网：<a href="https://maven.apache.org/" target="_blank" rel="noopener">https://maven.apache.org/</a></p>
+<ul>
+<li>配置文件使用镜像</li>
+</ul>
+<p><code>${user.home}/.m2/settings.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">settings</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/SETTINGS/1.0.0"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>huaweicloud<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://mirrors.huaweicloud.com/repository/maven/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<ul>
+<li><p>编译项目并打包</p>
+<p>  <code>mvn package</code></p>
+</li>
+<li><p>清除编译文件</p>
+<p>  <code>mvn clean</code></p>
+</li>
+<li><p>单元测试</p>
+<p>  <code>mvn test</code></p>
+</li>
+<li><p>安装第三方JARs包</p>
+<p>  <code>mvn install</code></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Maven</tag>
+      </tags>
+  </entry>
 </search>
